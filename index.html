@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Basics — Part 2</title>
+<style>
+  :root{
+    --ink:#20261f; --paper:#faf7ef; --line:#d8d0bd; --accent:#3d6b4f; --accent-ink:#f2efe2;
+    --wrong:#a4432f; --right:#3d6b4f; --card:#ffffff;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#eae6d9; --paper:#181a16; --line:#3a3d33; --accent:#7fb894; --accent-ink:#0e1210;
+      --wrong:#e08069; --right:#7fb894; --card:#20241d;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eae6d9; --paper:#181a16; --line:#3a3d33; --accent:#7fb894; --accent-ink:#0e1210;
+    --wrong:#e08069; --right:#7fb894; --card:#20241d;
+  }
+  *{box-sizing:border-box}
+  html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Iowan Old Style',serif;line-height:1.5;}
+  header{position:sticky;top:0;padding-top:env(safe-area-inset-top,0px);background:var(--paper);border-bottom:1px solid var(--line);z-index:10;}
+  .head-inner{max-width:760px;margin:0 auto;padding:14px 20px;}
+  header h1{font-size:1.15rem;margin:0 0 8px;font-weight:700;}
+  nav{display:flex;flex-wrap:wrap;gap:6px;overflow-x:auto;}
+  nav a{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.72rem;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:5px 10px;border-radius:20px;white-space:nowrap;opacity:.8;}
+  nav a:hover{opacity:1;border-color:var(--accent);}
+  main{max-width:760px;margin:0 auto;padding:28px 20px 80px;}
+  .intro{margin-bottom:36px;}
+  .intro h2{font-size:1.6rem;margin:0 0 10px;}
+  .intro p{max-width:62ch;}
+  .intro .focus{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin-top:16px;font-size:.92rem;}
+  .intro .focus strong{display:block;margin-bottom:6px;}
+  section.unit{margin:52px 0;padding-top:12px;border-top:1px solid var(--line);}
+  section.unit h2{font-size:1.35rem;margin:0 0 6px;}
+  .purpose{font-size:.95rem;opacity:.85;max-width:62ch;margin:0 0 10px;}
+  .focus-line{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.82rem;background:var(--card);border-left:3px solid var(--accent);padding:8px 12px;margin-bottom:18px;max-width:62ch;}
+  .ref{font-size:.9rem;margin-bottom:18px;max-width:62ch;}
+  .ref table{border-collapse:collapse;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.85rem;}
+  .ref td{padding:3px 12px 3px 0;}
+  .task{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+  .task .q{font-size:.95rem;margin-bottom:10px;}
+  .task .opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .task .opts button{font-family:inherit;font-size:.85rem;padding:6px 12px;border-radius:6px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;}
+  .task .opts button:hover{border-color:var(--accent);}
+  .task input[type=text]{font-family:inherit;font-size:.85rem;padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:180px;margin-right:8px;}
+  .task .check{font-family:inherit;font-size:.8rem;padding:6px 12px;border-radius:6px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);cursor:pointer;}
+  .fb{display:inline-block;margin-left:8px;font-size:.82rem;min-height:1.2em;}
+  .fb.correct{color:var(--right);}
+  .fb.wrong{color:var(--wrong);}
+  .progress{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:.75rem;opacity:.7;margin-top:2px;}
+  .totalscore{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:1.05rem;font-weight:700;text-align:center;margin-top:40px;border-top:1px solid var(--line);padding-top:20px;}
+  footer{max-width:760px;margin:0 auto;padding:0 20px 60px;font-size:1.2rem;opacity:.8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <h1>English Basics — Part 2</h1>
+    <nav id="topnav"></nav>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <h2>Clothes, food, and the home</h2>
+    <p>This is the second part of the course. It moves from grammar basics into everyday topics: what you wear, what you eat, and the rooms of a house — plus one important grammar point, the difference between <em>I wear</em> and <em>I am wearing</em>.</p>
+    <div class="focus">
+      <strong>What to focus on:</strong>
+      Vocabulary units (clothes, food, meals, house, living room, bathroom) are about recall — can you name the thing without thinking? The grammar units (wear vs wearing, plurals) are about noticing the pattern and applying it to a new word, not just memorising the examples.
+    </div>
+  </div>
+
+  <div id="units"></div>
+
+  <div id="totalscore" class="totalscore">Score: 0 / 0 correct</div>
+</main>
+
+<footer>Nannestad videregående skole — Barbara Anna Zielonka</footer>
+
+<script>
+const UNITS = [
+{
+  id:"p1", title:"1. Clothes",
+  purpose:"Clothing words come up constantly — shopping, weather talk, and describing people.",
+  focus:"Focus on which items go with cold weather vs warm weather, and singular vs plural (a shoe / shoes).",
+  ref:`shirt, trousers/pants, dress, skirt, jacket, coat, shoes, socks, hat, scarf, jeans, sweater`,
+  tasks:[
+    {type:"fill", q:"You wear these on your feet:", answer:"shoes"},
+    {type:"mcq", q:"Which is worn in cold weather?", options:["a coat","a swimsuit","sandals"], correct:"a coat"},
+    {type:"fill", q:"You wear this on your head:", answer:"hat"},
+    {type:"mcq", q:"\"Trousers\" is called ___ in American English.", options:["pants","shirts","socks"], correct:"pants"},
+    {type:"fill", q:"You wear this to keep warm around your neck:", answer:"scarf"},
+    {type:"mcq", q:"Which of these is worn on your legs?", options:["jeans","hat","scarf"], correct:"jeans"}
+  ]
+},
+{
+  id:"p2", title:"2. I wear vs I am wearing",
+  purpose:"English uses two different tenses to talk about clothes — one for habits, one for right now.",
+  focus:"Focus on the difference: 'I wear' = a general habit; 'I am wearing' = true at this exact moment.",
+  ref:`<table><tr><td>I wear a uniform to school.</td><td>(every day — habit)</td></tr><tr><td>I am wearing a blue shirt today.</td><td>(right now)</td></tr></table>`,
+  tasks:[
+    {type:"fill", q:"I usually ___ (wear) black shoes to work.", answer:"wear"},
+    {type:"fill", q:"Look! She ___ (wear — right now, two words) a red dress.", answer:"is wearing"},
+    {type:"mcq", q:"Which sentence describes a habit?", options:["I wear jeans every weekend","I am wearing jeans right now"], correct:"I wear jeans every weekend"},
+    {type:"mcq", q:"Which sentence describes now?", options:["I wear a hat every day","I am wearing a hat today"], correct:"I am wearing a hat today"},
+    {type:"mcq", q:"Which is a habit?", options:["He wears glasses","He is wearing glasses right now"], correct:"He wears glasses"},
+    {type:"fill", q:"Right now, I ___ (wear — two words) my new jacket.", answer:"am wearing"}
+  ]
+},
+{
+  id:"p3", title:"3. Food",
+  purpose:"Basic food words let you talk about meals, shopping lists, and likes/dislikes.",
+  focus:"Group the words as you learn them: fruit, vegetables, meat, and drinks are different categories.",
+  ref:`bread, rice, cheese, meat, fish, vegetables, fruit, eggs, milk, water, apple, banana`,
+  tasks:[
+    {type:"mcq", q:"Which of these is a vegetable?", options:["carrot","chicken","milk"], correct:"carrot"},
+    {type:"fill", q:"You drink this — it comes from a cow:", answer:"milk"},
+    {type:"mcq", q:"Which of these is a fruit?", options:["potato","apple","fish"], correct:"apple"},
+    {type:"fill", q:"Fish and chicken are both types of ___.", answer:"meat"},
+    {type:"mcq", q:"Which of these is a drink?", options:["water","cheese","rice"], correct:"water"},
+    {type:"fill", q:"You eat this for breakfast — made from wheat and baked:", answer:"bread"}
+  ]
+},
+{
+  id:"p4", title:"4. Plural form",
+  purpose:"You need plurals to talk about more than one of anything — objects, people, animals.",
+  focus:"Focus on the three spelling patterns, then the irregular words, which just have to be memorised.",
+  ref:`<table><tr><td>book → books</td><td>(add -s)</td></tr><tr><td>box → boxes</td><td>(-s, -sh, -ch, -x, -o → add -es)</td></tr><tr><td>baby → babies</td><td>(consonant + y → -ies)</td></tr><tr><td>child → children</td><td>(irregular: man→men, woman→women, foot→feet)</td></tr></table>`,
+  tasks:[
+    {type:"fill", q:"Plural of \"book\":", answer:"books"},
+    {type:"fill", q:"Plural of \"box\":", answer:"boxes"},
+    {type:"fill", q:"Plural of \"baby\":", answer:"babies"},
+    {type:"mcq", q:"Plural of \"child\":", options:["childs","children","childrens"], correct:"children"},
+    {type:"fill", q:"Plural of \"foot\":", answer:"feet"},
+    {type:"fill", q:"Plural of \"dish\":", answer:"dishes"}
+  ]
+},
+{
+  id:"p5", title:"5. Meals",
+  purpose:"Talking about your day almost always involves talking about meals.",
+  focus:"Focus on matching each meal to its rough time of day.",
+  ref:`<table><tr><td>Morning</td><td>breakfast</td></tr><tr><td>Midday</td><td>lunch</td></tr><tr><td>Evening</td><td>dinner (supper)</td></tr><tr><td>Between meals</td><td>a snack</td></tr></table>`,
+  tasks:[
+    {type:"fill", q:"The first meal of the day is ___.", answer:"breakfast"},
+    {type:"fill", q:"The meal in the middle of the day is ___.", answer:"lunch"},
+    {type:"fill", q:"The evening meal is ___.", answer:"dinner"},
+    {type:"mcq", q:"A small meal between main meals is a ___.", options:["snack","feast","brunch"], correct:"snack"},
+    {type:"mcq", q:"Which of these is NOT a meal?", options:["lunch","snack","chair"], correct:"chair"},
+    {type:"fill", q:"In the UK, another word for the evening meal is ___.", answer:"supper"}
+  ]
+},
+{
+  id:"p6", title:"6. House — live in a house / rooms",
+  purpose:"You'll describe your home early on, and 'live in' is the standard pattern for it.",
+  focus:"Focus on the verb 'live' with he/she/it (lives), and matching rooms to their activity.",
+  ref:`<table><tr><td>I live in a house.</td><td>She lives in an apartment.</td></tr></table>house, apartment/flat, kitchen, bedroom, bathroom, garden, garage`,
+  tasks:[
+    {type:"fill", q:"I ___ (live) in a house.", answer:"live"},
+    {type:"fill", q:"She ___ (live) in an apartment.", answer:"lives"},
+    {type:"mcq", q:"Where do you cook?", options:["kitchen","bedroom","garden"], correct:"kitchen"},
+    {type:"mcq", q:"Where do you sleep?", options:["bedroom","bathroom","kitchen"], correct:"bedroom"},
+    {type:"mcq", q:"Where do you park your car?", options:["garage","garden","bathroom"], correct:"garage"},
+    {type:"fill", q:"Flowers and grass usually grow in the ___.", answer:"garden"}
+  ]
+},
+{
+  id:"p7", title:"7. Living room",
+  purpose:"The living room is where most family conversations happen — worth knowing its vocabulary well.",
+  focus:"Focus on matching each object to what you do with it.",
+  ref:`sofa/couch, TV, armchair, coffee table, bookshelf, carpet/rug, curtains, lamp`,
+  tasks:[
+    {type:"fill", q:"You sit on this to watch TV:", answer:"sofa"},
+    {type:"mcq", q:"Where do you put your cup while watching TV?", options:["coffee table","bookshelf","curtains"], correct:"coffee table"},
+    {type:"fill", q:"You watch programmes on the ___.", answer:"TV"},
+    {type:"mcq", q:"What covers the floor in a living room?", options:["a carpet","a curtain","a lamp"], correct:"a carpet"},
+    {type:"mcq", q:"Where do you sit alone to read, in a single chair?", options:["armchair","sofa","bookshelf"], correct:"armchair"},
+    {type:"fill", q:"You keep your books on a ___.", answer:"bookshelf"}
+  ]
+},
+{
+  id:"p8", title:"8. Bathroom",
+  purpose:"Bathroom vocabulary is essential and comes up in daily routines and travel.",
+  focus:"Focus on the verbs that go with each object: wash in the sink, dry with a towel.",
+  ref:`shower, bath/bathtub, toilet, sink, mirror, towel, toothbrush, soap`,
+  tasks:[
+    {type:"fill", q:"You wash your hands in the ___.", answer:"sink"},
+    {type:"mcq", q:"What do you use to dry yourself?", options:["a towel","a toothbrush","soap"], correct:"a towel"},
+    {type:"fill", q:"You look at yourself in the ___.", answer:"mirror"},
+    {type:"mcq", q:"Where do you wash your whole body, standing up?", options:["shower","toilet","sink"], correct:"shower"},
+    {type:"fill", q:"You clean your teeth with a ___.", answer:"toothbrush"},
+    {type:"mcq", q:"What do you use with water to wash your hands?", options:["soap","a towel","a mirror"], correct:"soap"}
+  ]
+}
+];
+
+const unitsEl = document.getElementById("units");
+const navEl = document.getElementById("topnav");
+
+UNITS.forEach((u) => {
+  const a = document.createElement("a");
+  a.href = "#" + u.id;
+  a.textContent = u.title.replace(/^\d+\.\s*/, "");
+  navEl.appendChild(a);
+
+  const sec = document.createElement("section");
+  sec.className = "unit";
+  sec.id = u.id;
+
+  let tasksHtml = "";
+  u.tasks.forEach((t, ti) => {
+    const tid = u.id + "-t" + ti;
+    if (t.type === "mcq") {
+      const opts = t.options.map(o =>
+        `<button type="button" onclick="answerMcq('${tid}','${escAttr(o)}','${escAttr(t.correct)}')">${o}</button>`
+      ).join("");
+      tasksHtml += `<div class="task"><div class="q">${ti+1}. ${t.q}</div>
+        <div class="opts">${opts}</div><span class="fb" id="${tid}-fb"></span></div>`;
+    } else {
+      tasksHtml += `<div class="task"><div class="q">${ti+1}. ${t.q}</div>
+        <input type="text" id="${tid}-in" placeholder="type your answer">
+        <button type="button" class="check" onclick="answerFill('${tid}','${escAttr(t.answer)}')">Check</button>
+        <span class="fb" id="${tid}-fb"></span></div>`;
+    }
+  });
+
+  sec.innerHTML = `
+    <h2>${u.title}</h2>
+    <p class="purpose">${u.purpose}</p>
+    <div class="focus-line"><strong>Focus:</strong> ${u.focus}</div>
+    <div class="ref">${u.ref}</div>
+    ${tasksHtml}
+    <div class="progress" id="${u.id}-progress">0 / ${u.tasks.length} correct</div>
+  `;
+  unitsEl.appendChild(sec);
+});
+
+const state = {};
+const TOTAL_TASKS = UNITS.reduce((sum, u) => sum + u.tasks.length, 0);
+document.getElementById("totalscore").textContent = "Score: 0 / " + TOTAL_TASKS + " correct";
+
+function escAttr(s){ return String(s).replace(/'/g,"\\'"); }
+
+function updateTotalScore(){
+  const correctCount = Object.values(state).filter(Boolean).length;
+  document.getElementById("totalscore").textContent = "Score: " + correctCount + " / " + TOTAL_TASKS + " correct";
+}
+
+function markDone(tid, ok){
+  if(!state[tid]) {
+    state[tid] = ok;
+    const unitId = tid.split("-t")[0];
+    const doneCount = Object.keys(state).filter(k => k.startsWith(unitId+"-") && state[k]).length;
+    const total = UNITS.find(u=>u.id===unitId).tasks.length;
+    document.getElementById(unitId+"-progress").textContent = doneCount + " / " + total + " correct";
+    updateTotalScore();
+  }
+}
+
+function answerMcq(tid, chosen, correct){
+  const fb = document.getElementById(tid+"-fb");
+  const ok = chosen === correct;
+  fb.textContent = ok ? "Correct" : ("Not quite — answer: " + correct);
+  fb.className = "fb " + (ok ? "correct" : "wrong");
+  if(ok) markDone(tid, true);
+}
+
+function answerFill(tid, correct){
+  const input = document.getElementById(tid+"-in");
+  const fb = document.getElementById(tid+"-fb");
+  const val = input.value.trim().toLowerCase();
+  const ok = val === correct.toLowerCase();
+  fb.textContent = ok ? "Correct" : ("Not quite — answer: " + correct);
+  fb.className = "fb " + (ok ? "correct" : "wrong");
+  if(ok) markDone(tid, true);
+}
+</script>
+</body>
+</html>
